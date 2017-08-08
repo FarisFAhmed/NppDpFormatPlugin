@@ -13,19 +13,31 @@ namespace Kbg.NppPluginNET
 {
     class Main
     {
+        #region Members
+
         internal const string PluginName = "DP Formatter";
         static string iniFilePath = null;
         static bool someSetting = false;
+
+        // Id of the format menu item
         protected static int menuId_Format = 0;
+
+        // Id of the seperator menu item
         protected static int menuId_MenuSeparator = 1;
+
+        // Id of the About menu item
         protected static int menuId_ShowAboutWindow = 2;
 
+        // Holds the reference to the current Scintilla
         protected static ScintillaGateway scintillaGateway = new ScintillaGateway(PluginBase.GetCurrentScintilla());
 
+        // Holds the reference of the DpTools class that hat the formatting functionality
         protected static DpTools m_DpFormatter = null;
 
+        #endregion
+        
         public static void OnNotification(ScNotification notification)
-        {  
+        {
             // This method is invoked whenever something is happening in notepad++
             // use eg. as
             // if (notification.Header.Code == (uint)NppMsg.NPPN_xxx)
@@ -39,7 +51,7 @@ namespace Kbg.NppPluginNET
         internal static void CommandMenuInit()
         {
             StringBuilder sbIniFilePath = new StringBuilder(Win32.MAX_PATH);
-            Win32.SendMessage(PluginBase.nppData._nppHandle, (uint) NppMsg.NPPM_GETPLUGINSCONFIGDIR, Win32.MAX_PATH, sbIniFilePath);
+            Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_GETPLUGINSCONFIGDIR, Win32.MAX_PATH, sbIniFilePath);
             iniFilePath = sbIniFilePath.ToString();
             if (!Directory.Exists(iniFilePath)) Directory.CreateDirectory(iniFilePath);
             iniFilePath = Path.Combine(iniFilePath, PluginName + ".ini");
@@ -51,18 +63,23 @@ namespace Kbg.NppPluginNET
             PluginBase.SetCommand(menuId_ShowAboutWindow, "About", ShowAboutWindow);
         }
 
+        /// <summary>
+        /// Provides the icons in the Notepad++ toolbar
+        /// </summary>
         internal static void SetToolBarIcon()
         {
-            // Pretty print toolbar icon
+            // Icon for the print button
             toolbarIcons tbIcons = new toolbarIcons()
             {
+                // Get the handle from the Format resource object
                 hToolbarBmp = NppFormatPlugin.Properties.Resources.Format.GetHbitmap()
             };
 
+            // Allocate the resources in the none .NET world of Notepad++
             IntPtr pTbIcons = Marshal.AllocHGlobal(Marshal.SizeOf(tbIcons));
             Marshal.StructureToPtr(tbIcons, pTbIcons, false);
 
-            // Setzt das Toolbar icon mit der commandId von Menu "Filter"
+            // Send a system message to Npp to set add a toolbar icon.
             Win32.SendMessage(PluginBase.nppData._nppHandle, (uint)NppMsg.NPPM_ADDTOOLBARICON, PluginBase._funcItems.Items[menuId_Format]._cmdID, pTbIcons);
             Marshal.FreeHGlobal(pTbIcons);
         }
