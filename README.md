@@ -1,5 +1,5 @@
 # Text formatting plugin for Notepad++
-The DpFormatter Notepad++ plugin formats text from this form:
+The DpFormatter (Deutsche Post Formatter) Notepad++ plugin formats text from this form:
 
 <p align="left">
   <img alt="DpFormat" src="https://github.com/FarisFAhmed/NppDpFormatPlugin/blob/master/NppFormatPluginGithub/ReadMe/Unformatted.png">
