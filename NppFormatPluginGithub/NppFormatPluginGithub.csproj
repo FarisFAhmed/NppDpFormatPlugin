@@ -97,12 +97,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe\Formatted.png" />
+    <Content Include="ReadMe\ReadMe.txt" />
     <Content Include="ReadMe\Unformatted.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildProjectDirectory)\PluginInfrastructure\DllExport\NppPlugin.DllExport.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(TargetPath)"  "C:\Program Files (x86)\Notepad++\Plugins"  /R /Y
+xcopy $(ProjectDir)ReadMe\ReadMe.txt  $(TargetDir) /R /Y
 REM xcopy "$(TargetDir)NppFormatPlugin.pdb" "C:\Program Files (x86)\Notepad++\Plugins"  /R /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
