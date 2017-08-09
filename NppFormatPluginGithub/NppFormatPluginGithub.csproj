@@ -95,7 +95,6 @@
   <ItemGroup>
     <None Include="Resources\Format.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="ReadMe\Unformatted.jpg" />
   </ItemGroup>
