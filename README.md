@@ -15,9 +15,10 @@ The DpFormatter plugin adds a format toolbar button with shortuct (Ctrl-F12) and
 
 ## Technical Requirements
 * Microsoft Windows with .NET Framework 3.5
+* Microsoft Visual Studio
 
-### License
-
-Copyright 2017 Deutsche Post DHL IT Services GmbH.
-
-Licensed under the [GNU Lesser General Public License, Version 3.0](http://www.gnu.org/licenses/lgpl.txt)
+## How to deploy?
+* Get the sources and build the project
+* Copy the output assembly dll to the plugins folder of Notepad++
+* Start Notepad++
+* The "DP Formatter" menu item should appear in the Plugins menu.
