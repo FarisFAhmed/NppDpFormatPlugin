@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("DpFormatter")]
 [assembly: AssemblyDescription("Notepad++ plugin for text formatting")]
-[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyConfiguration("Release")]
 [assembly: AssemblyCompany("Deutsche Post DHL IT Services GmbH")]
-[assembly: AssemblyProduct("NppFormatPlugin")]
+[assembly: AssemblyProduct("Notepad++ plugin")]
 [assembly: AssemblyCopyright("Copyright © Deutsche Post 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("en")]
