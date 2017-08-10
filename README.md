@@ -22,7 +22,7 @@ The DpFormatter plugin adds a format toolbar button with shortuct (Ctrl-F12) and
 * Start Notepad++, you should see the new menu "Plugins\DP Formatter\Format" and toolbar button "Format"
 * Now you can start formtting text in the above format
 
-## For end users?
+## For end users
 * Download the Release zip file and unzip it
 * Stop Notepad++
 * Copy DpFormatter.dll into the Notepad++ Plugins folder and start Notepad++
